@@ -41,10 +41,9 @@ function init() {
      $.ajax({
        type: "POST",
        url: 'https://rsstojson.udacity.com/parseFeed',
-       data: JSON.stringify({url: feedUrl}),
+       data: JSON.stringify({url: feedUrl}),//把json转为字符串
        contentType:"application/json",
        success: function (result, status){
-
                  var container = $('.feed'),
                      title = $('.header-title'),
                      entries = result.feed.entries,
@@ -115,6 +114,7 @@ $(function() {
      * 菜单的显示状态的切换。
      */
     menuIcon.on('click', function() {
+
         $('body').toggleClass('menu-hidden');
     });
 }());
