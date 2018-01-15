@@ -45,24 +45,17 @@ $(function() {
         it('is hidden',function(){
 
             var if_hidden;
-            if_hidden = ($('body').hasClass('menu-hidden') ?true : false);
-            expect(if_hidden).toBe(true);
+            expect($('body').hasClass('menu-hidden')).toBe(true);
         });
         it('clcik',function(){
             var if_hidden;
             var menuIcon = $('.menu-icon-link');
             menuIcon.click();
-            if_hidden = ($('body').hasClass('menu-hidden') ?true : false);
-            expect(if_hidden).toBe(false);
+            expect($('body').hasClass('menu-hidden')).toBe(false);
             menuIcon.click();
-            if_hidden = ($('body').hasClass('menu-hidden') ?true : false);
-            expect(if_hidden).toBe(true);
+            expect($('body').hasClass('menu-hidden')).toBe(true);
         });
     });
-
-
-
-
     /* TODO: 13. 写一个叫做 "Initial Entries" 的测试用例 */
     describe('Initial Entries',function(){
         /* TODO:
@@ -77,10 +70,10 @@ $(function() {
                 done();
             });
         });
-        it('not empty',function(done){
+        it('not empty',function(){
             var html=$('.feed').find('.entry');
             expect(html.length).not.toBe(0);
-            done();
+
         });
 
     });
@@ -94,12 +87,12 @@ $(function() {
         beforeEach(function(done){
             loadFeed(1,function(){
                 html1=$('.feed').find('.entry');
+
                 loadFeed(0,function(){
                     html2=$('.feed').find('.entry');
                     done();
                 });
             });
-
         });
         it('not equal',function(){
             var ifBool=false;
@@ -114,6 +107,7 @@ $(function() {
                 }
             }
             expect(ifBool).toBe(true);
+
         })
     })
 
